@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú de Modelos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="/">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Modelos ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/modelos/knn">K-Nearest Neighbors</a></li>
+                    <li><a href="/modelos/arbol">Árbol de Decisión</a></li>
+                    <li><a href="/modelos/random_forest">Random Forest</a></li>
+                    <li><a href="/modelos/svm">Support Vector Machine</a></li>
+                    <li><a href="/modelos/gradient_boosting">Gradient Boosting</a></li>
+                    <li><a href="/modelos/naive_bayes">Naive Bayes</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Bienvenido al menú de modelos</h1>
+        <p>Selecciona un modelo en el menú para ver su información detallada.</p>
+    </div>
+
+</body>
+</html>

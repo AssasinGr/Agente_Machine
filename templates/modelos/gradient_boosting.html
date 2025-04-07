@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Boosting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelos.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gradient Boosting</h1>
+        
+        <p>
+            <strong>Gradient Boosting</strong> es una técnica de ensamble que crea un modelo fuerte a partir de múltiples modelos débiles, típicamente árboles de decisión.
+        </p>
+        <p>
+            Agrega secuencialmente modelos que corrigen los errores del anterior, optimizando una función de pérdida.
+        </p>
+        <p>
+            Ha demostrado gran efectividad en predicción de enfermedades, riesgo crediticio y análisis de sentimientos.
+        </p>
+
+        <img src="{{ url_for('static', filename='img/gradient_boosting.png') }}" alt="Gradient Boosting" width="500">
+
+        <p>
+            <strong>Fuente:</strong> <a href="https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2013.00021/full" target="_blank">Artículo sobre Gradient Boosting</a>
+        </p>
+    </div>
+
+</body>
+</html>

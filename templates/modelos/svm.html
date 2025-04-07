@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Vector Machine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelos.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Support Vector Machine (SVM)</h1>
+        
+        <p>
+            <strong>Support Vector Machine (SVM)</strong> es un modelo de clasificación supervisado basado en la teoría estadística del aprendizaje.
+        </p>
+        <p>
+            Busca encontrar el hiperplano óptimo que maximiza el margen entre clases y puede usar kernels para clasificaciones no lineales.
+        </p>
+        <p>
+            Es ampliamente usado en procesamiento de imágenes, voz, series temporales, minería de datos y más.
+        </p>
+
+        <img src="{{ url_for('static', filename='img/svm.png') }}" alt="SVM" width="500">
+
+        <p>
+            <strong>Fuente:</strong> <a href="https://link.springer.com/chapter/10.1007/978-3-540-73170-2_4" target="_blank">Artículo sobre SVM</a>
+        </p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Investigación Casos de Uso Supervisados</title>
+        <link rel="stylesheet" href="static/css/pagina.css">
+    </head>
+    <body>
+        <header>
+            <h1>Investigación Casos de Uso Supervisados</h1>
+        </header>
+
+        <section>
+            <h2>Investigación: Caso de Uso Machine Learning Supervisado</h2>
+            <h3><em>Monitoreo de Riego de Cultivos y Detección de Anomalías con Machine Learning</em></h3>
+            <p>De los distintos casos investigados, se eligió el Monitoreo de Riego de Cultivos y Detección de Anomalías con Machine Learning. En este caso de uso, el objetivo es la implementación de un sistema de detección automática de anomalías en los sistemas de riego de cultivos.</p>
+            
+            <h2>Descripción del Problema Resuelto</h2>
+            <p>El problema que se encuentra es que los sistemas utilizados en el riego de cultivos, principalmente los de pivote central, que prácticamente es un sistema el cual consiste en una estructura de acero con aspersores que riega de forma circular, necesitan ser supervisados constantemente para evitar posibles fallas para evitar pérdidas, el problema surge ya que la supervisión humana no es lo suficientemente exhaustiva.</p>
+            <p>Por lo cual es necesario contar con un sistema automático el cual detecte las posibles anomalías en tiempo real. El cual se soluciona haciendo uso de una infraestructura IoT. Los dispositivos y sensores se comunican con un satélite y mandan los resultados a la nube, donde se ejecutan pipelines de procesamiento de flujo masivo de datos para clasificarlos y detectar potenciales anomalías.</p>
+
+            <h2>Tipo de Algoritmo Utilizado</h2>
+            <p>El tipo de algoritmo utilizado fue un algoritmo supervisado de Machine Learning, más específicamente una red neuronal. El proceso comenzó con la recolección de datos existentes y la clasificación de estos, basándose en si los datos presentaban anomalías o no. Después de eso, se entrenó el modelo utilizando una métrica derivada de un indicador estadístico de promedio móvil, que es básicamente usar una forma de calcular un promedio que cambia con el tiempo, para entrenar el modelo. Con esto el modelo ve las tendencias en los datos. Esto ayudó a crear un conjunto de datos etiquetado para entrenar la red neuronal y mejorar la precisión en la detección de anomalías.</p>
+
+            <h2>Beneficios Obtenidos</h2>
+            <ul>
+                <li>El sistema se volvió capaz de identificar anomalías en los sistemas de riego en tiempo real, para luego enviar alertas a los supervisores para que tomen las medidas necesarias al instante.</li>
+                <li>Al automatizar la detección de problemas, los agricultores y las empresas que utilizaron este sistema redujeron la necesidad de intervenciones manuales, optimizando recursos y reduciendo costos.</li>
+                <li>La solución desarrollada es escalable, lo que significa que es posible agregar más dispositivos de monitoreo en diferentes cultivos sin afectar el rendimiento del sistema.</li>
+            </ul>
+
+            <h2>Ejemplo</h2>
+            <p>Un ejemplo claro es la empresa Ponce Automations, que implementó esta tecnología en la infraestructura de sus clientes, quienes cuentan con dispositivos IoT en sus sistemas de riego. Los dispositivos recogen datos sobre presión y posición del sistema de riego y los envían a la nube, donde un pipeline de procesamiento los clasifica y analiza para detectar anomalías. Cuando se detecta un comportamiento inusual, el sistema emite una alerta al supervisor en tiempo real.</p>
+
+            <h2>Referencias</h2>
+            <ul>
+                <li>Etchanchú, F., Bouvier, J. M., & Bert, T. (2021). Monitoreo de riego de cultivos y detección de anomalías con machine learning. En XXIV Concurso de Trabajos Estudiantiles (EST 2021)-JAIIO 50 (Modalidad virtual).</li>
+                <li>Castillo Andrade, D. D. (2021). Aplicación de técnicas de machine learning para la construcción de modelos de una sola clase en la identificación de cultivos a partir de imágenes de satélite.</li>
+                <li>Yanqui, E. F. C., & Panchana Merchan, K. J. (2023). Sistema de Riego Inteligente usando Machine Learning. ESPOL. FIEC.</li>
+                <li>Villavicencio_Quintero, D., Cabrera_Hernández, E., Godo_Alonso, A., & Santana Ching, I. (2023). Sistema para la toma de decisiones en el riego de cultivos protegidos basado en aprendizaje de máquina. Ingeniería Electrónica, Automática y Comunicaciones, 44(3), 41-49.</li>
+            </ul>
+        </section>
+    </body>
+</html>

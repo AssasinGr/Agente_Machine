@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Nearest Neighbors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelos.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>K-Nearest Neighbors</h1>
+        
+        <p>
+            El modelo de <strong>K-Nearest Neighbors (KNN)</strong> es un algoritmo de clasificación supervisado que asigna una clase a una nueva instancia basándose en las clases de sus vecinos más cercanos.
+        </p>
+        <p>
+            Calcula la distancia entre el punto a clasificar y todos los puntos del conjunto de entrenamiento, selecciona los 'k' vecinos más próximos (usualmente mediante distancia euclidiana), y determina la clase más frecuente entre ellos.
+        </p>
+        <p>
+            Es un modelo no paramétrico, fácil de implementar y útil para tareas de reconocimiento de patrones y clasificación multiclase, aunque puede ser costoso computacionalmente con grandes volúmenes de datos.
+        </p>
+
+        <img src="{{ url_for('static', filename='img/knn.png') }}" alt="Gráfico KNN" width="500">
+
+        <p>
+            <strong>Fuente:</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4916348/" target="_blank">Artículo sobre KNN</a>
+        </p>
+    </div>
+
+</body>
+</html>

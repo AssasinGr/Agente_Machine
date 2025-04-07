@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naive Bayes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelos.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Naive Bayes</h1>
+        
+        <p>
+            <strong>Naive Bayes</strong> es un algoritmo basado en el teorema de Bayes, que asume independencia entre características.
+        </p>
+        <p>
+            Es eficiente, ofrece buen rendimiento incluso cuando sus supuestos no se cumplen y se aplica mucho en clasificación de texto.
+        </p>
+        <p>
+            Se caracteriza por su eficiencia, capacidad de aprendizaje incremental y robustez ante ruido y valores faltantes.
+        </p>
+
+        <img src="{{ url_for('static', filename='img/naive_bayes.png') }}" alt="Naive Bayes" width="500">
+
+        <p>
+            <strong>Fuente:</strong> <a href="https://www.researchgate.net/publication/306313918_Naive_Bayes" target="_blank">Artículo sobre Naive Bayes</a>
+        </p>
+    </div>
+
+</body>
+</html>

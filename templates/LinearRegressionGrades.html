@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width, initial-scale=1.0">
+        <title> Linear Regresion Grades</title>
+        <link rel="stylesheet" href="static/css/LinearRegressionGrades.css">
+    </head>
+    <body>
+        <h1> Linear Regresion : Calculator Grade Dependes on Study Hours </h1>
+        <form method="post">
+            <label for="hours"> Horas de Estudio </label>
+            <input type="number" name="hours" required>
+            <button type="submit"> Predict </button>
+        </form>
+        {% if result is not none %}
+        <h2> Estimated Grade :{(result)}</h2>
+        {% endif %}
+    </body>
+</html>

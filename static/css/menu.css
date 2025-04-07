@@ -1,0 +1,92 @@
+body {
+    background-color: #f7f7f7; 
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #3498db;
+    padding: 10px 20px;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-list li {
+    margin-right: 20px;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #2980b9; 
+}
+
+.nav-list .dropdown {
+    position: relative;
+}
+
+.nav-list .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ecf0f1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-list .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-list .dropdown-menu li {
+    padding: 10px;
+}
+
+.nav-list .dropdown-menu li a {
+    color: #2c3e50;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-list .dropdown-menu li a:hover {
+    background-color: #bdc3c7; 
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #3498db; 
+    margin-bottom: 25px;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 17px;
+    margin-bottom: 16px;
+    color: #2c3e50; 
+}
