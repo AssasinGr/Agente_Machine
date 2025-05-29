@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación del Agente - Agente Q-Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/especifico.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Simulador de Agente Q-Learning</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/que-es-rl">¿Qué es RL?</a></li>
+                <li><a href="/descripcion-entorno">Entorno</a></li>
+                <li><a href="/resultados-entrenamiento">Entrenamiento y Resultados</a></li>
+                <li><a href="/simular">Simulación Agente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>Simulación del Agente Entrenado</h2>
+            <p>Observa cómo el agente entrenado navega por el entorno de FrozenLake. Cada paso mostrará el estado actual, la acción tomada y la recompensa recibida.</p>
+
+            {% if not agente_entrenado %}
+            <div class="warning-message">
+                <p><strong>¡Atención!</strong> El agente aún no ha sido entrenado. Por favor, ve a la sección de <a href="/resultados-entrenamiento">Entrenamiento y Resultados</a> y entrena un agente antes de intentar simularlo.</p>
+            </div>
+            {% endif %}
+
+            <div class="simulation-controls">
+                <button id="startSimulationBtn" {% if not agente_entrenado %}disabled{% endif %}>Iniciar Simulación</button>
+            </div>
+
+            <div class="simulation-map-container" id="simulationMapContainer">
+            {% if env_info and env_info.map %}
+                {% set rows = env_info.map | length %}
+                {% set cols = env_info.map[0] | length %}
+                <div class="grid-container" id="currentMapGrid" style="grid-template-columns: repeat({{ cols }}, 1fr);">
+                    {% for row in env_info.map %}
+                        {% set row_idx = loop.index0 %}
+                        {% for cell_char in row %}
+                            {% set col_idx = loop.index0 %}
+                            <div class="grid-cell cell-{{ cell_char | lower }}"
+                                 id="cell-{{ row_idx }}-{{ col_idx }}">
+                                {{ cell_char }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Cargando mapa del entorno...</p>
+            {% endif %}
+            </div>
+            <p class="small-text" style="text-align: center; font-style: italic; margin-top: 10px;">
+                Leyenda: <strong>S</strong> (Inicio), <strong>F</strong> (Congelado), <strong>H</strong> (Agujero), <strong>G</strong> (Meta), <span style="background-color: #ffd700; padding: 2px 5px; border-radius: 3px; border: 1px solid #b8860b;">Agente</span>
+            </p>
+
+            <div class="simulation-output" id="simulationOutput">
+                <p>Haz clic en "Iniciar Simulación" para ver el agente en acción.</p>
+            </div>
+        </section>
+
+        <section class="actions">
+            <a href="/resultados-entrenamiento" class="button primary">Volver a Entrenamiento</a>
+            <a href="/" class="button secondary">Volver al Inicio</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Simulador Q-Learning. Todos los derechos reservados.</p>
+    </footer>
+
+    <script id="envInfoData" type="application/json">
+        {{ env_info | tojson }}
+    </script>
+
+    <script src="{{ url_for('static', filename='js/simulacion.js') }}"></script>
+</body>
+</html>

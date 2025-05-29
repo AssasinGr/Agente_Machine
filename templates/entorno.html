@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Entorno FrozenLake - Agente Q-Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/especifico.css') }}"> </head>
+<body>
+    <header>
+        <h1>Bienvenido al Simulador de Agente Q-Learning</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/que-es-rl">¿Qué es RL?</a></li>
+                <li><a href="/descripcion-entorno">Entorno</a></li>
+                <li><a href="/resultados-entrenamiento">Entrenamiento y Resultados</a></li>
+                <li><a href="/simular">Simulación Agente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>Descripción del Entorno: {{ env_info.name }}</h2>
+            <p>{{ env_info.description }}</p>
+
+            <h3>Detalles del Entorno:</h3>
+            <ul>
+                <li><strong>Número de Estados:</strong> {{ env_info.states }}</li>
+                <li><strong>Número de Acciones:</strong> {{ env_info.actions | length }} ({{ env_info.actions | join(', ') }})</li>
+                <li><strong>Sistema de Recompensas:</strong> {{ env_info.reward_system }}</li>
+            </ul>
+
+            <h3>Visualización del Mapa:</h3>
+            {% if env_info.map %}
+                {% set rows = env_info.map | length %}
+                {% set cols = env_info.map[0] | length %}
+                <div class="grid-container" style="grid-template-columns: repeat({{ cols }}, 1fr);">
+                    {% for row in env_info.map %}
+                        {% for cell_char in row %}
+                            <div class="grid-cell cell-{{ cell_char }}">
+                                {{ cell_char }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <p class="small-text" style="text-align: center; font-style: italic; margin-top: 10px;">
+                    Leyenda: <strong>S</strong> (Inicio), <strong>F</strong> (Congelado), <strong>H</strong> (Agujero), <strong>G</strong> (Meta)
+                </p>
+            {% else %}
+                <p>No se pudo cargar la visualización del mapa para este entorno.</p>
+            {% endif %}
+
+        </section>
+
+        <section class="actions">
+            <a href="/resultados-entrenamiento" class="button primary">¡Entrenar un Agente Ahora!</a>
+            <a href="/simular" class="button secondary">Simular Comportamiento del Agente</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Simulador Q-Learning. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,256 @@
+/* Estilos para entorno.html */
+.grid-container {
+    display: grid;
+    border: 2px solid #333;
+    margin: 20px auto;
+    max-width: fit-content;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.grid-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.cell-F { background-color: #e0f2f7; color: #0056b3; } 
+.cell-S { background-color: #a0c4ff; color: #003c80; } 
+.cell-H { background-color: #ff9999; color: #cc0000; } 
+.cell-G { background-color: #a7ff83; color: #336600; } 
+
+
+/* Estilos para resultados.html*/
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #218838;
+}
+
+.results-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.results-section h3 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.loading-spinner {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #007bff;
+    animation: spin 1s ease infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.graph-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.q-table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.q-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.q-table th, .q-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.q-table th {
+    background-color: #f2f2f2;
+    color: #555;
+    white-space: nowrap;
+}
+
+.q-table td.positive { background-color: #e6ffe6; }
+.q-table td.negative { background-color: #ffe6e6; }
+
+.param-explanation {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.param-explanation h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.param-explanation ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-bottom: 0;
+}
+
+.param-explanation ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.param-explanation ul li strong {
+    color: #333;
+}
+
+.param-explanation p.note {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    color: #666;
+}
+
+
+/* Estilos para simulacion.html*/
+.simulation-controls {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.simulation-controls button {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.simulation-controls button:hover {
+    background-color: #0056b3;
+}
+
+.simulation-output {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-height: 200px;
+    overflow-y: auto;
+}
+
+.simulation-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-bottom: 1px dashed #eee;
+}
+
+.simulation-step:last-child {
+    border-bottom: none;
+}
+
+.step-number {
+    font-weight: bold;
+    color: #0056b3;
+    margin-right: 15px;
+    width: 30px;
+    text-align: right;
+}
+
+.step-details {
+    flex-grow: 1;
+}
+
+.step-details strong {
+    color: #333;
+}
+
+.simulation-map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.grid-cell.agent {
+    background-color: #ffd700; 
+    box-shadow: 0 0 10px #ffd700;
+    border: 2px solid #b8860b;
+    animation: pulse 1.5s infinite alternate; 
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.warning-message {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
