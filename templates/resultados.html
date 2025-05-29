@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenamiento y Resultados - Agente Q-Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/especifico.css') }}"> </head>
+<body>
+    <header>
+        <h1>Bienvenido al Simulador de Agente Q-Learning</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/que-es-rl">¿Qué es RL?</a></li>
+                <li><a href="/descripcion-entorno">Entorno</a></li>
+                <li><a href="/resultados-entrenamiento">Entrenamiento y Resultados</a></li>
+                <li><a href="/simular">Simulación Agente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>Entrenamiento del Agente y Visualización de Resultados</h2>
+            <p>Ajusta los parámetros del algoritmo Q-Learning y entrena a tu agente en el entorno FrozenLake. Una vez finalizado el entrenamiento, podrás ver el gráfico de recompensas y la tabla de valores Q.</p>
+
+            <div class="param-explanation">
+                <h3>Parámetros del Algoritmo Q-Learning</h3>
+                <p>Modifica estos valores para experimentar cómo afectan el proceso de aprendizaje del agente. Un buen entendimiento de cada uno te ayudará a optimizar el rendimiento.</p>
+                <ul>
+                    <li><strong>Número de Episodios:</strong> Cantidad de veces que el agente jugará el juego completo (desde el inicio hasta el final o un límite de pasos). Un mayor número de episodios permite al agente explorar y aprender más, pero requiere más tiempo de entrenamiento.</li>
+                    <li><strong>Tasa de Aprendizaje (Alpha):</strong> Controla cuánto de la nueva información aprendida reemplaza el valor Q antiguo. Un valor alto (ej., 0.9) significa que el agente se adapta rápidamente a la nueva información, mientras que un valor bajo (ej., 0.1) significa que los cambios son graduales.</li>
+                    <li><strong>Factor de Descuento (Gamma):</strong> Determina la importancia de las recompensas futuras. Un valor cercano a 1 (ej., 0.99) hace que el agente valore las recompensas futuras casi tanto como las inmediatas, buscando objetivos a largo plazo. Un valor cercano a 0 (ej., 0.1) hace que el agente se enfoque solo en las recompensas inmediatas.</li>
+                    <li><strong>Tasa de Decaimiento de Epsilon:</strong> Controla cómo disminuye la exploración del agente a lo largo del tiempo. Epsilon (la probabilidad de elegir una acción aleatoria) comienza en 1.0 y disminuye en cada episodio por esta tasa. Una tasa alta hace que el agente deje de explorar más rápido y se vuelva más "codicioso" (explotar lo aprendido). Una tasa baja mantiene la exploración por más tiempo.</li>
+                </ul>
+                <p class="note"><strong>Consejo:</strong> Experimenta con diferentes combinaciones para ver cómo el agente se adapta y mejora su rendimiento. Si el entrenamiento es muy lento, reduce el número de episodios inicialmente.</p>
+            </div>
+
+            <form id="trainingForm">
+                <div class="form-group">
+                    <label for="numero_episodios">Número de Episodios:</label>
+                    <input type="number" id="numero_episodios" name="numero_episodios" value="10000" min="100" step="100">
+                </div>
+                <div class="form-group">
+                    <label for="tasa_aprendizaje">Tasa de Aprendizaje (Alpha):</label>
+                    <input type="number" id="tasa_aprendizaje" name="tasa_aprendizaje" value="0.1" min="0.01" max="1.0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="factor_descuento">Factor de Descuento (Gamma):</label>
+                    <input type="number" id="factor_descuento" name="factor_descuento" value="0.99" min="0.01" max="0.99" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="tasa_decaimiento_epsilon">Tasa de Decaimiento de Epsilon:</label>
+                    <input type="number" id="tasa_decaimiento_epsilon" name="tasa_decaimiento_epsilon" value="0.001" min="0.0001" max="0.1" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Entrenar Agente</button>
+                </div>
+            </form>
+
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Entrenando agente... Por favor, espere.</p>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <h3>Resultados del Entrenamiento</h3>
+                <p><strong>Episodios Entrenados:</strong> <span id="episodios_entrenados"></span></p>
+                <p><strong>Recompensa Promedio (últimos 100 episodios):</strong> <span id="recompensa_promedio"></span></p>
+
+                <div class="graph-container">
+                    <h3>Gráfico de Recompensas</h3>
+                    <img id="rewardGraph" src="" alt="Gráfico de Recompensas por Episodio">
+                </div>
+
+                <h3>Tabla de Valores Q (Ejemplo de las primeras filas)</h3>
+                <div class="q-table-container">
+                    <table class="q-table" id="qTable">
+                        <thead>
+                            <tr>
+                                <th>Estado</th>
+                                <th>Acción: Izquierda</th>
+                                <th>Acción: Abajo</th>
+                                <th>Acción: Derecha</th>
+                                <th>Acción: Arriba</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+                <p class="small-text" style="font-style: italic; margin-top: 10px;">
+                    Nota: La tabla Q puede ser muy grande. Se muestran las primeras filas.
+                </p>
+            </div>
+        </section>
+
+        <section class="actions">
+            <a href="/simular" class="button primary">Simular Comportamiento del Agente Entrenado</a>
+            <a href="/descripcion-entorno" class="button secondary">Volver a Descripción del Entorno</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Simulador Q-Learning. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/entrenamiento.js') }}"></script>
+</body>
+</html>
