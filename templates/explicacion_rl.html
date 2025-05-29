@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Aprendizaje por Refuerzo? - Agente Q-Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Simulador de Agente Q-Learning</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/que-es-rl">¿Qué es RL?</a></li>
+                <li><a href="/descripcion-entorno">Entorno</a></li>
+                <li><a href="/resultados-entrenamiento">Entrenamiento y Resultados</a></li>
+                <li><a href="/simular">Simulación Agente</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section">
+            <h2>¿Qué es el Aprendizaje por Refuerzo (RL)?</h2>
+            <p>El Aprendizaje por Refuerzo (Reinforcement Learning o RL) es un área del Machine Learning donde un agente aprende a tomar decisiones en un entorno para maximizar una recompensa acumulada. Es un tipo de aprendizaje donde el agente aprende por prueba y error, sin un conjunto de datos etiquetados explícitamente.</p>
+            
+            <h3>Conceptos Clave del RL:</h3>
+            <ul>
+                <li><strong>Agente:</strong> Es el tomador de decisiones. En mi caso, es el algoritmo Q-Learning que controla al personaje en FrozenLake.</li>
+                <li><strong>Entorno:</strong> Es el mundo con el que interactúa el agente. Para mi, es el lago congelado o mejor dicho "Frozen Lake". El entorno reacciona a las acciones del agente y le presenta nuevos estados y recompensas.</li>
+                <li><strong>Estado:</strong> Es la situación actual del agente en el entorno. En FrozenLake, sería la celda específica en la que se encuentra el agente en el mapa.</li>
+                <li><strong>Acción:</strong> Una decisión que el agente puede tomar en un estado dado. En FrozenLake, las acciones son moverse hacia arriba, abajo, izquierda o derecha.</li>
+                <li><strong>Recompensa:</strong> Un valor numérico que el entorno le da al agente después de realizar una acción en un estado. Una recompensa positiva anima al agente a repetir esa acción, mientras que una negativa lo desalienta. En FrozenLake, llegar a la meta da +1, caer en un agujero o no llegar da 0.</li>
+                <li><strong>Política:</strong> La estrategia que el agente utiliza para decidir qué acción tomar en cada estado. Es lo que el agente aprende.</li>
+                <li><strong>Función de Valor:</strong> Estima lo bueno que es un estado o una acción-estado a largo plazo, considerando las recompensas futuras.</li>
+            </ul>
+
+            <h3>¿Cómo Aprende un Agente RL?</h3>
+            <p>El proceso de aprendizaje de un agente de RL es un ciclo continuo:</p>
+            <ol>
+                <li><strong>Observa el Estado:</strong> El agente percibe su estado actual en el entorno.</li>
+                <li><strong>Elige una Acción:</strong> Basándose en su política actual, el agente selecciona una acción a realizar.</li>
+                <li><strong>Recibe Recompensa y Nuevo Estado:</strong> El entorno procesa la acción, proporciona una recompensa (positiva, negativa o cero) y transiciona a un nuevo estado.</li>
+                <li><strong>Actualiza su Conocimiento:</strong> El agente utiliza la recompensa y el nuevo estado para ajustar su política o función de valor, con el objetivo de mejorar sus futuras decisiones.</li>
+            </ol>
+            <p>Este ciclo se repite hasta que el agente logra un objetivo o se alcanza un límite de tiempoo de pasos.</p>
+        </section>
+        <section class="actions">
+            <a href="/descripcion-entorno" class="button primary">Conocer el Entorno FrozenLake</a>
+            <a href="/resultados-entrenamiento" class="button secondary">Ir al Entrenamiento del Agente</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Simulador Q-Learning. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
